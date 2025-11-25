@@ -985,7 +985,7 @@ with gr.Blocks(title="RVC WebUI") as app:
                             label=i18n(
                                 "Adjust the volume envelope scaling. Closer to 0, the more it mimicks the volume of the original vocals. Can help mask noise and make volume sound more natural when set relatively low. Closer to 1 will be more of a consistently loud volume"
                             ),
-                            value=1,
+                            value=0.25,
                             interactive=True,
                         )
                         protect1 = gr.Slider(
@@ -1012,7 +1012,7 @@ with gr.Blocks(title="RVC WebUI") as app:
                             minimum=0,
                             maximum=1,
                             label=i18n("Feature searching ratio"),
-                            value=1,
+                            value=0.75,
                             interactive=True,
                         )
                         format1 = gr.Radio(

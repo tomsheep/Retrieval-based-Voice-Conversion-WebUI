@@ -232,6 +232,7 @@ class VC:
                 traceback.print_exc()
                 paths = [path.name for path in paths]
             infos = []
+            print('Use Index:', file_index, file_index2)
             for path in paths:
                 info, opt = self.vc_single(
                     sid,
@@ -251,11 +252,13 @@ class VC:
                 if "Success" in info:
                     try:
                         tgt_sr, audio_opt = opt
+                        filename = os.path.basename(path)
+                        name = os.path.splitext(filename)[0]
                         save_audio(
-                            "%s/%s.%s" % (opt_root, os.path.basename(path), format1),
+                            "%s/%s.%s" % (opt_root, name, format1),
                             audio_opt,
                             tgt_sr,
-                            f32=True,
+                            f32=False,
                         )
                     except:
                         info += traceback.format_exc()

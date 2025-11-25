@@ -1,6 +1,11 @@
 import os, pathlib
 
 from fairseq import checkpoint_utils
+# 导入需要允许的类
+from fairseq.data.dictionary import Dictionary
+# 将该类加入PyTorch的安全全局对象列表
+import torch.serialization
+torch.serialization.add_safe_globals([Dictionary])
 
 
 def get_index_path_from_model(sid):
